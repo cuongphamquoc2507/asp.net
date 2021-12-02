@@ -1,0 +1,92 @@
+﻿@model mvc_btl.Areas.Admin.Models.TACGIA
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_layoutAd.cshtml";
+}
+
+
+
+<h3>Có chắc muốn xóa tác giả này không?</h3>
+<div class="bg">
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenTG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenTG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Anh)
+        </dt>
+
+        <dd>
+
+           
+            @Html.DisplayFor(model => model.Anh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ngaysinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngaysinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quequan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quequan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tieusu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tieusu)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay lại", "Index")
+        </div>
+    }
+</div>
+<style>
+    .dl-horizontal {
+        margin: auto;
+        width: 50%;
+        border: 2px solid green;
+        padding: 10px;
+        background-color: aquamarine;
+    }
+    .form-actions  {
+        margin: auto;
+        width: 50%;
+        border: 2px solid green;
+        padding: 10px;
+        background-color: aquamarine;
+    }
+    .form-actions  .btn-default {
+        background-color: red;
+        align-content: center;
+    }
+    h3{
+        text-decoration-color: initial;
+        text-align:center;
+    }
+    
+</style>

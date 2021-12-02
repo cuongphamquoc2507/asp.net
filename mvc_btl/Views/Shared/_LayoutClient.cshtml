@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>CgP BOOK</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    
+    <link href="~/wwwroot/css/templatemo_style.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div id="templatemo_container">
+        <div id="templatemo_menu" align="center">
+            <ul>
+                @*<li> class="current">Trang chủ</a></li>
+
+        <li><a href="xemtat.html">Tác giả</a></li>
+        <li><a href="thongtin.html">Thông tin sản phẩm</a></li>*@
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" :"")">@Html.ActionLink("Trang chủ", "Index", "Home")</li>
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Tacgia" ? "active" :"")">@Html.ActionLink("Tác giả", "Tacgia", "Home")</li>
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active" :"")">@Html.ActionLink("Thông tin sản phẩm", "contact", "Home")</li>
+            </ul>
+        </div> <!-- end of menu -->
+        
+        <div id="templatemo_header">
+            <img src="~/wwwroot/images/templatemo_header_bg_blank2.png" />  
+        </div> <!-- end of header -->
+        @RenderBody()
+         <!-- end of content -->
+
+        <div id="templatemo_footer">
+
+            <a >@Html.ActionLink("Trang chủ", "Index", "Home")</a> | <a>@Html.ActionLink("Tác giả", "Tacgia", "Home")</a> | <a href="#">FAQs</a> | <a>@Html.ActionLink("Liên hệ", "contact", "Home")</a><br />
+            Copyright © 2024 <a href="https://www.facebook.com/cuong.p.quoc.257/"><strong>Phạm Quốc Cường</strong></a>
+            <!-- Credit: www.templatemo.com -->
+        </div>
+        <!-- end of footer -->
+        <!--  Free CSS Template www.templatemo.com -->
+    </div> <!-- end of container -->
+    <!-- templatemo 086 book store -->
+    <!--
+    Book Store Template
+    http://www.templatemo.com/preview/templatemo_086_book_store
+    -->
+</body>
+</html>

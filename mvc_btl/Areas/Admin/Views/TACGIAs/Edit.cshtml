@@ -1,0 +1,114 @@
+﻿@model mvc_btl.Areas.Admin.Models.TACGIA
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_layoutAd.cshtml";
+}
+</br>
+<h2>Sửa tác giả</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal" >
+      
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaTG)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TenTG, "Tên tác giả", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenTG, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenTG, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Anh, "Ảnh", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{
+                    string ImagePath = "~/Areas/Asset/images/" + Model.Anh;
+                }
+                <img id="output" class="img-rounded" alt="Ảnh" width="180" height="200" src="@Url.Content(@ImagePath)" />
+                <p><label for="ufile" style="cursor:  pointer;"> Chọn  file  ảnh </label></p>
+                <input name="ImageFile" id="ufile" type="file" style="display:  none;" onchange="loadFile(event)" />
+                @Html.HiddenFor(model => model.Anh, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Anh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Ngaysinh, "Ngày sinh", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Ngaysinh, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Ngaysinh, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Quequan, "Quê quán", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Quequan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Quequan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tieusu, "Tiểu sử", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Tieusu, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Tieusu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" align="center">
+            <div class="col-md-offset-2 col-md-10" >
+                <input type="submit" value="Lưu" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div align="center">
+    @Html.ActionLink("Quay lại", "Index")
+</div>
+@if (ViewBag.Error != null)
+{
+    <br />
+    <div class="alert alert-danger" role="alert">@ViewBag.Error</div>
+}
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@
+<script>
+    var loadFile = function (event) {
+        var image = document.getElementById('output');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    };
+</script>
+<style>
+    .form-group {
+        margin: auto;
+        width: 50%;
+        border: 2px solid green;
+        padding: 10px;
+        background-color:ghostwhite;
+   
+    }
+        .form-group .col-md-offset-2 .btn-default {
+            background-color: red;
+            align-content: center;
+        }
+        .form-group .col-md-10 .form-control {
+            background-color: aquamarine;
+            align-items: center;
+            margin: auto;
+            width: 120%;
+            text-align:center;
+        }h2{
+             color:yellow;
+             text-align:center;
+         }
+</style>
